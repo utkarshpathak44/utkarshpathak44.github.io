@@ -21,7 +21,7 @@ document.getElementById("closeProfile").addEventListener("click", function () {
 });
 
 function openProfile() {
-  document.getElementById("profilePage").classList.remove("hidden");
+  document.getElementById("profilePage").classList.toggle("hidden");
 }
 document.getElementById("openProfile").addEventListener("click",openProfile)
 
