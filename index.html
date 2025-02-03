@@ -18,15 +18,26 @@
         <div
           class="border border-pink-700 rounded-lg w-[100%] h-auto bg-white-100 flex flex-col pt-2 gap-3"
         >
-          <div class="flex flex-row justify-between items-center w-full px-3">
-            <div class="text-2xl">My Documents</div>
+          <div class="flex items-center w-full px-3 gap-1">
+            <div class="text-2xl flex-none">My Documents</div>
+            <div
+              class="ml-auto flex justify-center items-center border border-pink-700 w-10 h-10 rounded-lg"
+              id="add"
+            >
+              +
+            </div>
+            <div
+              class="ml-1 flex justify-center items-center border border-pink-700 w-10 h-10 rounded-lg"
+            >
+              -
+            </div>
             <!-- search icon -->
             <div
-              class="md:hidden border border-pink-700 rounded-lg w-10 h-10 bg-white-100"
+              class="md:hidden ml-1 border border-pink-700 rounded-lg w-10 h-10 bg-white-100"
             ></div>
             <!-- search bar for larger screens -->
             <div
-              class="border hidden border-pink-700 rounded-lg w-70 h-10 bg-white-100 md:flex"
+              class="hidden ml-1 border border-pink-700 rounded-lg w-70 h-10 bg-white-100 md:flex justify-between px-1"
             >
               <input type="text" />
               <div
@@ -130,5 +141,89 @@
         ></div>
       </div>
     </div>
+    <div
+      id="fixedDiv"
+      class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[9999] w-100 h-150 md:w-200 md:h-150 bg-stone-50 grid grid-rows-[1fr_7fr_1fr] grid-cols-1 rounded-lg shadow-2xl text-center p-4 border border-pink-700 rounded"
+    >
+      <!-- Popup Header -->
+      <div class="flex flex-row justify-between items-center w-full p-5">
+        <div class="text-xl font-semibold">Upload file</div>
+        <div class="cursor-pointer" id="close">
+          <img
+            class="h-6 w-6 hover:brightness-90"
+            src="assets/close.svg"
+            alt="Close"
+          />
+        </div>
+      </div>
+
+      <!-- Main Upload Section -->
+      <div class="flex flex-row w-full h-full">
+        <!-- Drop Area -->
+        <div
+          class="hidden md:flex flex-1 items-center justify-center border border-pink-700 p-8"
+        >
+          <div class="text-center">
+            <div>Drop your file here, or</div>
+            <input type="file" id="fileInput" class="mt-2 cursor-pointer" />
+          </div>
+        </div>
+
+        <!-- File Info Area -->
+        <div class="flex flex-1 flex-col items-center justify-center px-6">
+          <form id="fileForm" action="" class="w-full space-y-3">
+            <label for="fileName" class="block text-left font-medium"
+              >File Name</label
+            >
+            <input
+              type="text"
+              id="fileName"
+              required
+              class="w-full border border-gray-400 rounded-md p-2"
+            />
+
+            <label for="fileStatus" class="block text-left font-medium">
+              File Status (1: Needs Signing, 2: Pending, 3: Completed)
+            </label>
+            <input
+              type="text"
+              id="fileStatus"
+              required
+              class="w-full border border-gray-400 rounded-md p-2"
+            />
+
+            <label for="fileWait" class="block text-left font-medium"
+              >File Wait</label
+            >
+            <input
+              type="number"
+              id="fileWait"
+              required
+              class="w-full border border-gray-400 rounded-md p-2"
+            />
+
+            <label for="lastModified" class="block text-left font-medium"
+              >Last Modified</label
+            >
+            <input
+              type="date"
+              id="lastModified"
+              class="w-full border border-gray-400 rounded-md p-2"
+            />
+
+            <input
+              type="submit"
+              value="Submit"
+              class="w-full bg-blue-500 text-white py-2 rounded-md cursor-pointer hover:bg-blue-600"
+            />
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="w-full h-full"></div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
