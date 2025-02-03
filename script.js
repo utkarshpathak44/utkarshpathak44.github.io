@@ -1,6 +1,7 @@
 const addButton = document.getElementById("add");
 const closeButton = document.getElementById("close");
 const fixedDiv = document.getElementById("fixedDiv");
+const sidebar = document.getElementById("sidebar");
 
 fixedDiv.classList.toggle("hidden");
 
@@ -25,5 +26,8 @@ function openProfile() {
 }
 document.getElementById("openProfile").addEventListener("click",openProfile)
 
-
 document.getElementById("openProfilePhone").addEventListener("click",openProfile)
+
+document.getElementById("sideBarToggle").addEventListener("click",()=>
+    sidebar.classList.toggle("w-0")
+)

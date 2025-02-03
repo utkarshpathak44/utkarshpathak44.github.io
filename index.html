@@ -78,9 +78,11 @@
 
       <!-- Sidebar -->
       <div
-        class="relative border border-stone-700 h-[10%] md:w-[20%] md:h-full md:p-5 order-2 md:order-1 flex md:flex-col items-center justify-center gap-4"
+        id="sidebar"
+        class="bg-stone-950 md:bg-stone-100 border border-stone-700 h-[10%] md:w-[20%] md:h-full md:p-5 order-2 md:order-1 flex md:flex-col items-center justify-center gap-4"
       >
         <div
+          id="sideBarToggle"
           class="hidden md:flex absolute right-[-25px] top-[30px] w-[25px] h-[40px] bg-stone-50 text-white rounded-tr-full rounded-br-full shadow-md items-center cursor-pointer border border-stone-700 border-l-0"
         >
           <img
@@ -98,14 +100,14 @@
             alt="Logo"
             class="hidden md:block w-45"
           />
-          <img src="assets/home-dark.svg" alt="Logo" class="md:hidden w-full" />
+          <img src="assets/user-dark.svg" alt="Logo" class="md:hidden w-full" />
         </div>
 
         <div
           class="border md:hidden border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15"
           id="openProfilePhone"
         >
-          <img src="assets/user-dark.svg" alt="" class="w-full" />
+          <img src="assets/.svg" alt="" class="w-full" />
         </div>
         <div
           class="border hidden md:flex flex-col border-stone-700 rounded w-10 h-16 md:w-[100%] md:h-auto p-2"
@@ -148,64 +150,64 @@
           class="border border-stone-700 rounded w-auto h-10 md:w-[100%] md:h-auto flex md:flex-col gap-1 md:p-1"
         >
           <div
-            class="border border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15"
+            class="border border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15 flex"
           >
-            <div class="hidden md:block bg-white-10">
-              <img src="" alt="" />
+            <div class="md:block bg-white-10">
+              <img class="w-9" src="assets/home.svg" alt="" />
             </div>
-            <div></div>
+            <div class="hidden md:inline">Home</div>
           </div>
 
           <div
-            class="border border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15"
+            class="border border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15 flex"
           >
-            <div class="hidden md:block bg-white-10">
-              <img src="" alt="" />
+            <div class="md:block bg-white-10">
+              <img class="w-9" class="w-full" src="assets/docs.svg" alt="" />
             </div>
-            <div></div>
+            <div class="hidden md:inline">Documents</div>
           </div>
 
           <div
-            class="border border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15"
+            class="border border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15 flex"
           >
-            <div class="hidden md:block bg-white-10">
-              <img src="" alt="" />
+            <div class="md:block bg-white-10">
+              <img class="w-9" src="assets/chat.svg" alt="" />
             </div>
-            <div></div>
+            <div class="hidden md:inline">Chat with Neptune</div>
           </div>
 
           <div
-            class="border border-stone-700 rounded w-10 h-10 md:w-full md:h-15"
+            class="border border-stone-700 rounded w-10 h-10 md:w-full md:h-15 flex"
           >
-            <div class="hidden md:block bg-white-10">
-              <img src="" alt="" />
+            <div class="md:block bg-white-10">
+              <img class="w-9" src="assets/help.svg" alt="" />
             </div>
-            <div></div>
+            <div class="hidden md:inline">Help</div>
           </div>
 
           <div
-            class="border border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15"
+            class="border border-stone-700 rounded w-10 h-10 md:w-[100%] md:h-15 flex"
           >
-            <div class="hidden md:block bg-white-10">
-              <img src="" alt="" />
+            <div class="md:block bg-white-10">
+              <img class="w-9" src="assets/settings.svg" alt="" />
             </div>
-            <div></div>
+            <div class="hidden md:inline">Settings</div>
           </div>
         </div>
         <div
           class="border hidden border-stone-700 rounded w-10 md:flex md:h-80 md:w-[100%] md:h-15"
-        >
-          empty space
-        </div>
+        ></div>
         <div
           class="border border-stone-700 rounded w-10 h-10 md:flex md:h-20 md:w-[100%] md:h-15"
-        ></div>
+        >
+          <img class="w-9" src="assets/phone.svg" alt="" />
+        </div>
       </div>
     </div>
 
     <div
       id="fixedDiv"
-      class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[9999] w-100 h-150 md:w-200 md:h-150 bg-stone-50 grid grid-rows-[1fr_7fr_1fr] grid-cols-1 rounded-lg shadow-[0_0_500px_500px_black] text-center p-4 border border-stone-700 rounded"
+      class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[9999] w-100 h-150 md:w-200 md:h-150 bg-stone-50 grid grid-rows-[1fr_7fr_1fr] grid-cols-1 rounded-lg shadow-[0_0_5000px_5000px_black] text-center p-4 border border-stone-700 rounded"
     >
       <!-- Popup Header -->
       <div class="flex flex-row justify-between items-center w-full p-5">
@@ -289,7 +291,7 @@
     <!-- profile editor -->
     <div
       id="profilePage"
-      class="border border-stone-700 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-100 md:w-200 h-130 bg-stone-50 hidden grid grid-rows-[1fr_7fr_1fr] grid-cols-1 rounded-lg shadow-[0_0_500px_500px_black] z-100"
+      class="border border-stone-700 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-100 md:w-200 h-130 bg-stone-50 hidden grid grid-rows-[1fr_7fr_1fr] grid-cols-1 rounded-lg shadow-[0_0_5000px_5000px_black] z-100"
     >
       <div
         class="flex items-center justify-between p-5 border border-stone-700"
