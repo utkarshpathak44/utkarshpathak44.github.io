@@ -10,25 +10,58 @@
     <div class="flex flex-col md:flex-row h-full">
       <!-- Main Content -->
       <div
-        class="border border-pink-700 h-[90%] md:w-[80%] md:h-full order-1 md:order-2 bg-white-950 p-10 flex flex-col"
+        class="border border-pink-700 h-[90%] md:w-[80%] md:h-full order-1 md:order-2 bg-white-950 p-5 md:p-10 flex flex-col"
       >
         <div
           class="border border-pink-700 rounded-lg w-[100%] h-[3%] bg-white-100"
         ></div>
         <div
-          class="border border-pink-700 rounded-lg w-[100%] h-full bg-white-100 flex flex-col py-2 px-2 gap-3"
+          class="border border-pink-700 rounded-lg w-[100%] h-auto bg-white-100 flex flex-col pt-2 gap-3"
         >
-          <div class="flex flex-row justify-between items-center w-full">
+          <div class="flex flex-row justify-between items-center w-full px-3">
             <div class="text-2xl">My Documents</div>
+            <!-- search icon -->
+            <div
+              class="md:hidden border border-pink-700 rounded-lg w-10 h-10 bg-white-100"
+            ></div>
+            <!-- search bar for larger screens -->
             <div
               class="border hidden border-pink-700 rounded-lg w-70 h-10 bg-white-100 md:flex"
             >
               <input type="text" />
+              <div
+                class="border border-pink-700 rounded-lg w-10 h-10 bg-white-100"
+              ></div>
             </div>
           </div>
           <div
-            class="border border-pink-700 rounded-lg w-[100%] h-full bg-white-100 flex flex-col items-center"
-          ></div>
+            class="border border-pink-700 rounded-lg w-[100%] h-auto bg-white-100 flex flex-col items-center overflow-hidden"
+          >
+            <div
+              class="flex w-full h-15 border border-pink-700 px-5 items-center justify-center"
+            >
+              <div class="w-1/15"><input type="checkbox" /></div>
+              <div class="w-6/15">Document name</div>
+              <div class="w-3/15">Status</div>
+              <div class="w-5/15">Last Modified</div>
+            </div>
+            <div
+              class="flex w-full h-20 border border-pink-700 px-5 items-center justify-center"
+            >
+              <div class="w-1/15"><input type="checkbox" /></div>
+              <div class="w-6/15">Title of the document</div>
+              <div class="w-3/15">Status</div>
+              <div class="w-5/15">Last Modified</div>
+            </div>
+            <div
+              class="flex w-full h-20 border border-pink-700 px-5 items-center justify-center"
+            >
+              <div class="w-1/15"><input type="checkbox" /></div>
+              <div class="w-6/15">Document name</div>
+              <div class="w-3/15">Status</div>
+              <div class="w-5/15">Last Modified</div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Sidebar -->
