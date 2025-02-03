@@ -81,7 +81,7 @@
         class="relative border border-pink-700 h-[10%] md:w-[20%] md:h-full md:p-5 order-2 md:order-1 flex md:flex-col items-center justify-center gap-4"
       >
         <div
-          class="hidden md:flex absolute right-[-25px] top-[30px] w-[25px] h-[40px] bg-stone-50 text-white rounded-tr-full rounded-br-full shadow-md items-center cursor-pointer border border-pink-700"
+          class="hidden md:flex absolute right-[-25px] top-[30px] w-[25px] h-[40px] bg-stone-50 text-white rounded-tr-full rounded-br-full shadow-md items-center cursor-pointer border border-pink-700 border-l-0"
         >
           <img
             class="transition-transform transform scale-x-[-1]"
@@ -91,33 +91,57 @@
         </div>
 
         <div
-          class="border border-pink-700 rounded w-10 h-10 md:w-[100%] md:h-15"
+          class="flex border border-pink-700 rounded w-10 h-10 md:w-[100%] md:h-15 md:pr-35 md:pl-2"
         >
           <img
             src="assets/weblogo.svg"
             alt="Logo"
             class="hidden md:block w-full"
           />
-          <img src="assets/webSmall.svg" alt="Logo" class="md:hidden w-full" />
+          <img src="assets/home-dark.svg" alt="Logo" class="md:hidden w-full" />
         </div>
 
         <div
           class="border md:hidden border-pink-700 rounded w-10 h-10 md:w-[100%] md:h-15"
+          id="openProfilePhone"
         >
-          <img src="assets/userlogo.png" alt="" />
+          <img src="assets/user-dark.svg" alt="" class="w-full" />
         </div>
         <div
-          class="border hidden md:flex border-pink-700 rounded w-10 h-16 md:w-[100%] md:h-15 justify-between items-center p-2"
+          class="border hidden md:flex flex-col border-pink-700 rounded w-10 h-16 md:w-[100%] md:h-auto p-2"
         >
-          <div class="p-2">
-            <img src="assets/userlogo.png" alt="" />
+          <div class="flex flex-row justify-between items-center">
+            <div class="p-2">
+              <img src="assets/userlogo.png" alt="" />
+            </div>
+            <div class="flex flex-col gap-0">
+              <div class="font-medium text-xl">Username</div>
+              <div class="font-normal text-l">designation</div>
+            </div>
+            <div class="p-2 ml-auto cursor-pointer" id="dropdownBtn">
+              <img src="assets/dropdown.svg" alt="" />
+            </div>
           </div>
-          <div class="">
-            <div>username</div>
-            <div>designation</div>
-          </div>
-          <div class="p-2 ml-auto">
-            <img src="assets/dropdown.svg" alt="" />
+          <div
+            id="profileMenu"
+            class="hidden flex flex-col w-full justify-center items-center py-2 gap-1"
+          >
+            <div
+              id="openProfile"
+              class="flex w-full border border-pink-700 rounded h-10 px-2 items-center"
+            >
+              Open profile
+            </div>
+            <div
+              class="flex w-full border border-pink-700 rounded h-10 px-2 items-center"
+            >
+              profile status
+            </div>
+            <div
+              class="flex w-full border border-pink-700 rounded h-10 px-2 items-center"
+            >
+              logout
+            </div>
           </div>
         </div>
         <div
@@ -151,7 +175,7 @@
           </div>
 
           <div
-            class="border border-pink-700 rounded w-10 h-10 md:w-[100%] md:h-15"
+            class="border border-pink-700 rounded w-10 h-10 md:w-full md:h-15"
           >
             <div class="hidden md:block bg-white-10">
               <img src="" alt="" />
@@ -170,10 +194,14 @@
         </div>
         <div
           class="border hidden border-pink-700 rounded w-10 md:flex md:h-80 md:w-[100%] md:h-15"
-        ></div>
+        >
+          empty space
+        </div>
         <div
           class="border border-pink-700 rounded w-10 h-10 md:flex md:h-20 md:w-[100%] md:h-15"
-        ></div>
+        >
+          phone
+        </div>
       </div>
     </div>
     <div
@@ -259,6 +287,88 @@
       <div class="w-full h-full"></div>
     </div>
 
+    <!-- profile editor -->
+    <div
+      id="profilePage"
+      class="border border-pink-700 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-100 md:w-200 h-130 bg-gray-200 hidden grid grid-rows-[1fr_7fr_1fr] grid-cols-1 rounded-lg shadow-2xl z-100"
+    >
+      <div class="flex items-center justify-between p-5 border border-pink-700">
+        <div class="text-xl font-semibold">Profile Name</div>
+        <div class="cursor-pointer" id="closeProfile">
+          <img class="w-6 h-6" src="assets/close.svg" alt="Close" />
+        </div>
+      </div>
+
+      <div class="flex p-2">
+        <!-- Profile Image Preview -->
+        <div
+          class="hidden md:flex justify-center items-center w-full border border-pink-700 rounded"
+        >
+          <img
+            id="imagePreview"
+            src=""
+            alt="Image Preview"
+            class="hidden w-32"
+          />
+        </div>
+
+        <!-- Profile Form -->
+        <form
+          id="profileForm"
+          class="w-100 bg-white p-5 border border-pink-300 rounded-md shadow-sm"
+          enctype="multipart/form-data"
+        >
+          <label class="block font-medium">Name:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your name"
+            required
+            class="w-full p-2 mt-1 border border-stone-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <label class="block font-medium mt-3">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+            class="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <label class="block font-medium mt-3">Designation:</label>
+          <input
+            type="text"
+            id="desig"
+            name="desig"
+            placeholder="Enter your designation"
+            required
+            class="w-full p-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <label class="block font-medium mt-3">Profile Image:</label>
+          <input
+            type="file"
+            id="profileImage"
+            name="profileImage"
+            accept="image/*"
+            class="w-full p-2 mt-1 border border-gray-300 rounded-md"
+          />
+
+          <button
+            type="submit"
+            class="w-full bg-stone-100 text-black py-2 rounded-md cursor-pointer hover:bg-stone-300"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <!-- Profile Footer -->
+      <div class="h-[10%]"></div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
