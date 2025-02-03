@@ -14,7 +14,15 @@ closeButton.addEventListener("click", () => {
 });
 
 document.getElementById("dropdownBtn").addEventListener("click", function () {
-  document.getElementById("profileMenu").classList.toggle("hidden");
+  const profileMenu = document.getElementById("profileMenu");
+
+  if (profileMenu.classList.contains("opacity-0")) {
+    profileMenu.classList.remove("opacity-0", "max-h-0");
+    profileMenu.classList.add("opacity-100", "max-h-[500px]"); // or any large max-height
+  } else {
+    profileMenu.classList.remove("opacity-100", "max-h-[500px]");
+    profileMenu.classList.add("opacity-0", "max-h-0");
+  }
 });
 
 document.getElementById("closeProfile").addEventListener("click", function () {
